@@ -8,7 +8,7 @@ interface TreeProps {
 }
 
 function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
-    const { state, dispatch, getTalentPoints, getSpecTotalPoints, canAssignPoint } = useTalentContext();
+    const { dispatch, getTalentPoints, getSpecTotalPoints, canAssignPoint } = useTalentContext();
     
     // Obtener los talentos de la clase y especificación
     const classTalents = talents[wowClass];

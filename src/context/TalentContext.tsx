@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
-import type { ClassTalents } from '../types/types';
+import React, { createContext, useContext, useReducer, type ReactNode } from 'react';
 
 // Tipos para el contexto
 export interface TalentPoints {
