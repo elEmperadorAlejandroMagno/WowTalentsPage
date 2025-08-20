@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import type { SavedTalentSpec } from '../types/types';
+import React, { useState, useEffect, useRef } from 'react';
+import type { ResponseData, SavedTalentSpec } from '../types/types';
 import { saveBuildToServer, loadBuildFromServer } from '../services/buildApi';
 import './ShareSpec.css';
 
 interface ShareSpecProps {
   currentSpec: SavedTalentSpec | null;
-  onSpecLoaded?: (spec: SavedTalentSpec) => void;
+  onSpecLoaded?: (spec: ResponseData) => void;
 }
 
 export const ShareSpec: React.FC<ShareSpecProps> = ({ 
@@ -16,29 +16,44 @@ export const ShareSpec: React.FC<ShareSpecProps> = ({
   const [copySuccess, setCopySuccess] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
+  const hasLoadedRef = useRef(false);
 
-  // Verificar si hay una spec en la URL al cargar el componente
+  // Verificar si hay una spec en la URL al cargar el componente (solo una vez)
   useEffect(() => {
+    if (hasLoadedRef.current) return; // Evitar múltiples ejecuciones
+    
     const checkForSharedBuild = async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const buildId = urlParams.get('build');
       
       if (buildId && onSpecLoaded) {
+        hasLoadedRef.current = true; // Marcar como cargado
         setLoading(true);
-        const result = await loadBuildFromServer(buildId);
         
-        if (result.success && result.build) {
-          onSpecLoaded(result.build);
-          console.log('Build compartida cargada:', result.build.name);
-        } else {
-          setError(result.error || 'No se pudo cargar la build compartida');
+        try {
+          const result = await loadBuildFromServer(buildId);
+          
+          if (result.success && result.build) {
+            onSpecLoaded(result.build);
+            console.log('Build compartida cargada:', result.build.name);
+            
+            // Limpiar la URL para que no se recargue constantemente
+            const newUrl = window.location.origin + window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+          } else {
+            setError(result.error || 'No se pudo cargar la build compartida');
+          }
+        } catch (err) {
+          setError('Error cargando build compartida');
+          console.error(err);
+        } finally {
+          setLoading(false);
         }
-        setLoading(false);
       }
     };
     
     checkForSharedBuild();
-  }, [onSpecLoaded]);
+  }, []); // Sin dependencias - solo se ejecuta una vez
 
 
   const handleShare = async () => {
@@ -90,8 +105,9 @@ export const ShareSpec: React.FC<ShareSpecProps> = ({
       await navigator.clipboard.writeText(shareUrl);
       setCopySuccess(true);
       setTimeout(() => setCopySuccess(false), 2000);
-    } catch (err) {
+    } catch (error) {
       setError('No se pudo copiar al portapapeles');
+      console.warn(error)
     }
   };
 

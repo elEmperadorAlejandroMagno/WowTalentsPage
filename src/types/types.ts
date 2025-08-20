@@ -32,3 +32,5 @@ export interface SavedTalentSpec {
     availablePoints: number;
     createdAt: string;
 }
+
+export type ResponseData = Pick<SavedTalentSpec, 'id' | 'name' | 'className' | 'assignedPoints' | 'totalPoints' | 'availablePoints'>;
