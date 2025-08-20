@@ -16,3 +16,19 @@ export type SpecTalents = {
 export type ClassTalents = {
     [spec: string]: SpecTalents;
 };
+
+export interface SavedTalentSpec {
+    id: string;
+    name: string;
+    className: string;
+    assignedPoints: {
+        [spec: string]: {
+            [tier: string]: {
+                [talentIndex: number]: number;
+            };
+        };
+    };
+    totalPoints: number;
+    availablePoints: number;
+    createdAt: string;
+}
