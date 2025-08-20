@@ -5,6 +5,9 @@ import SaveSpecModal from './components/SaveSpecModal.tsx'
 import talents from './data/turtle-wow-talents'
 import type { SavedTalentSpec } from './types/types'
 import './App.css'
+import ShareSpec from './components/ShareSpec';
+import { useTemporalStorage } from './hooks/useTemporalStorage';
+import { getSpecFromUrl } from './utils/temporalStorage';
 
 // Componente interno que usa el contexto
 function AppContent() {
@@ -21,6 +24,21 @@ function AppContent() {
   useEffect(() => {
     setSavedSpecs(getSavedSpecs());
   }, [getSavedSpecs]);
+
+  // Inicializar el sistema de almacenamiento temporal  
+  useTemporalStorage();
+
+  // Verificar si hay una spec compartida en la URL al cargar
+  useEffect(() => {
+    const specFromUrl = getSpecFromUrl();
+    if (specFromUrl) {
+      handleSpecLoadedFromUrl(specFromUrl);
+      // Limpiar la URL después de cargar (opcional)
+      if (window.history.replaceState) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  }, []);
 
   // Función para mostrar notificaciones temporales
   const showNotification = (type: 'success' | 'error', message: string) => {
@@ -88,6 +106,50 @@ function AppContent() {
     }
   };
 
+  // Función para manejar spec cargada desde URL compartida
+  const handleSpecLoadedFromUrl = (spec: SavedTalentSpec) => {
+    // Cargar la clase primero
+    dispatch({ 
+      type: 'SET_CLASS', 
+      className: spec.className 
+    });
+    
+    // Cargar los puntos asignados
+    dispatch({
+      type: 'LOAD_SPEC',
+      spec: spec
+    });
+    
+    showNotification('success', `Especificación "${spec.name}" cargada desde URL compartida`);
+  };
+
+  // Función para manejar spec cargada desde el componente ShareSpec
+  const handleSpecLoaded = (spec: SavedTalentSpec) => {
+    handleSpecLoadedFromUrl(spec);
+  };
+
+  // Crear spec actual para compartir basada en el estado actual
+  const createCurrentSpecForSharing = (): SavedTalentSpec | null => {
+    if (!state.currentClass) {
+      return null;
+    }
+    
+    const usedPoints = state.totalPoints - state.availablePoints;
+    if (usedPoints === 0) {
+      return null;
+    }
+    
+    return {
+      id: `temp_${Date.now()}`,
+      name: `${state.currentClass} Build`,
+      className: state.currentClass,
+      assignedPoints: state.assignedPoints,
+      totalPoints: state.totalPoints,
+      availablePoints: state.availablePoints,
+      createdAt: new Date().toISOString()
+    };
+  };
+
   // Encontrar la especificación actual si se cargó una
   const currentSpec = savedSpecs.find(spec => 
     JSON.stringify(spec.assignedPoints) === JSON.stringify(state.assignedPoints) &&
@@ -105,7 +167,7 @@ function AppContent() {
       
       <div>
         <h1>Simulador de Talentos WoW</h1>
-        <h3>Prueba tus ramas de talentos de Turtle Wow</h3>
+        <h3>Prueba tus ramas de talentos de Wow sin gastar oro</h3>
       </div>
       
       <div className="class-selector">
@@ -189,6 +251,13 @@ function AppContent() {
       
       <div>
         <Talents wowClass={state.currentClass} />
+      </div>
+      <div>
+        <ShareSpec 
+          currentSpec={currentSpec || createCurrentSpecForSharing()}
+          onSpecLoaded={handleSpecLoaded}
+          showStats={false}
+        />
       </div>
       
       {/* Modal para guardar especificación */}
