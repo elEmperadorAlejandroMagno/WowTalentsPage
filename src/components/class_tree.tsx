@@ -1,6 +1,6 @@
-import talents from './data/turtle-wow-talents';
-import type { Talent, TalentTier } from './types/types';
-import { useTalentContext } from './context/TalentContext';
+import talents from '../data/turtle-wow-talents';
+import type { Talent, TalentTier } from '../types/types';
+import { useTalentContext } from '../context/TalentContext';
 
 interface TreeProps {
     specifyTree: string;
