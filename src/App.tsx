@@ -180,7 +180,7 @@ function AppContent() {
             onChange={handleSelectionChange}
             className="class-select"
           >
-            <option value="">Selecciona una clase o especificación</option>
+            <option value="" disabled>Selecciona una clase o especificación</option>
             
             {/* Separador para clases */}
             <optgroup label="Classes disponibles">
