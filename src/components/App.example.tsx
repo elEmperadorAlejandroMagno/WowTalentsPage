@@ -106,7 +106,6 @@ export const App: React.FC = () => {
         <ShareSpec
           currentSpec={currentSpec}
           onSpecLoaded={handleSpecLoaded}
-          showStats={true} // Mostrar estadísticas en desarrollo
         />
       </main>
 

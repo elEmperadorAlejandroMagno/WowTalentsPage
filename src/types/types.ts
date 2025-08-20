@@ -33,4 +33,4 @@ export interface SavedTalentSpec {
     createdAt: string;
 }
 
-export type ResponseData = Pick<SavedTalentSpec, 'id' | 'name' | 'className' | 'assignedPoints' | 'totalPoints' | 'availablePoints'>;
+export type ResponseData = Pick<SavedTalentSpec, 'id' | 'name' | 'className' | 'assignedPoints' | 'totalPoints' | 'availablePoints' | 'createdAt'>;

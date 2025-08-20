@@ -256,7 +256,6 @@ function AppContent() {
         <ShareSpec 
           currentSpec={currentSpec || createCurrentSpecForSharing()}
           onSpecLoaded={handleSpecLoaded}
-          showStats={false}
         />
       </div>
       

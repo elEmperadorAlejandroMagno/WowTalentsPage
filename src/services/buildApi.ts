@@ -1,6 +1,6 @@
 import type { SavedTalentSpec, ResponseData } from '../types/types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.MY_WOW_TALENTS_API_URL || 'http://localhost:3000/api';
 
 /**
  * Guarda una build en el servidor remoto y devuelve el ID para compartir
@@ -76,7 +76,7 @@ export async function loadBuildFromServer(shareId: string): Promise<{
     const result: { success: boolean; data?: SavedTalentSpec; error?: string } = await response.json();
 
     if (result.success && result.data) {
-      // Convertir los datos del servidor al formato de SavedTalentSpec
+      // Convertir los datos del servidor al formato de ResponseData
       const build: ResponseData = {
         id: result.data.id,
         name: result.data.name,
@@ -84,6 +84,7 @@ export async function loadBuildFromServer(shareId: string): Promise<{
         assignedPoints: result.data.assignedPoints,
         totalPoints: result.data.totalPoints,
         availablePoints: result.data.availablePoints,
+        createdAt: result.data.createdAt,
       };
 
       return {
