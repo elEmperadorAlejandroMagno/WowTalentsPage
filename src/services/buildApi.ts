@@ -1,6 +1,6 @@
 import type { SavedTalentSpec, ResponseData } from '../types/types';
 
-const API_BASE_URL = import.meta.env.MY_WOW_TALENTS_API_URL || 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.VITE_MY_WOW_TALENTS_API_URL || 'http://localhost:3000/api';
 
 /**
  * Guarda una build en el servidor remoto y devuelve el ID para compartir
