@@ -481,14 +481,14 @@
       "6": {
         "talents": [
           {
-            "name": "Blessed Life",
-            "icon": "spell_holy_blessedlife.jpg",
+            "name": "Holy Power",
+            "icon": "spell_holy_power.jpg",
             "maxPoints": 3
           },
           {
-            "name": "Pure of Heart",
-            "icon": "spell_holy_divineintervention.jpg",
-            "maxPoints": 2
+            "name": "Blessed Strikes",
+            "icon": "spell_holy_revivechampion.jpg",
+            "maxPoints": 5
           }
         ],
         "requiredPoints": 25
@@ -496,8 +496,8 @@
       "7": {
         "talents": [
           {
-            "name": "Light's Grace",
-            "icon": "spell_holy_holyprotection.jpg",
+            "name": "Daybreak",
+            "icon": "spell_holy_auramastery.jpg",
             "maxPoints": 1
           }
         ],

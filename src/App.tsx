@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Talents from './components/talents_tree.tsx'
 import { TalentProvider, useTalentContext } from './context/TalentContext'
 import SaveSpecModal from './components/SaveSpecModal.tsx'
-import talents from './data/turtle-wow-talents'
+import talents from './data/talents_structured.json'
 import type { SavedTalentSpec } from './types/types'
 import './App.css'
 import ShareSpec from './components/ShareSpec';
