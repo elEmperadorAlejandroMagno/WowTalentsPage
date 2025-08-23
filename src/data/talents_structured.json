@@ -757,17 +757,17 @@
             "name": "Malice",
             "icon": "ability_racial_bloodrage.jpg",
             "maxPoints": 5
-          },
-          {
-            "name": "Ruthlessness",
-            "icon": "ability_druid_disembowel.jpg",
-            "maxPoints": 3
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Ruthlessness",
+            "icon": "ability_druid_disembowel.jpg",
+            "maxPoints": 3
+          },
           {
             "name": "Murder",
             "icon": "spell_shadow_deathscream.jpg",
@@ -777,8 +777,13 @@
             "name": "Improved Blade Tactics",
             "icon": "ability_rogue_slicedice.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Relentless Strikes",
             "icon": "ability_warrior_decisivestrike.jpg",
             "maxPoints": 1
@@ -787,18 +792,18 @@
             "name": "Throwing Weapon Specialization",
             "icon": "inv_throwingknife_01.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Lethality",
             "icon": "ability_criticalstrike.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Taste for Blood",
             "icon": "inv_misc_bone_09.jpg",
             "maxPoints": 3
@@ -814,11 +819,11 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 10
+        "requiredPoints": 15
       },
-      "4": {
+      "5": {
         "talents": [
-          {
+                    {
             "name": "Efficient Poisons",
             "icon": "ability_creature_poison_06.jpg",
             "maxPoints": 3
@@ -832,29 +837,34 @@
             "name": "Cold Blood",
             "icon": "spell_ice_lament.jpg",
             "maxPoints": 1
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Vigor",
             "icon": "spell_nature_earthbindtotem.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Seal Fate",
             "icon": "spell_shadow_chilltouch.jpg",
             "maxPoints": 5
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Noxious Assault",
             "icon": "spell_double_dose_3.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Combat": {
@@ -869,8 +879,13 @@
             "name": "Lightning Reflexes",
             "icon": "spell_nature_invisibilty.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Deflection",
             "icon": "ability_parry.jpg",
             "maxPoints": 5
@@ -879,18 +894,18 @@
             "name": "Improved Backstab",
             "icon": "ability_backstab.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Precision",
             "icon": "ability_marksmanship.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Riposte",
             "icon": "ability_warrior_challange.jpg",
             "maxPoints": 1
@@ -906,11 +921,11 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 5
+        "requiredPoints": 10
       },
-      "3": {
+      "4": {
         "talents": [
-          {
+                    {
             "name": "Improved Kick",
             "icon": "ability_kick.jpg",
             "maxPoints": 2
@@ -924,17 +939,17 @@
             "name": "Dual Wield Specialization",
             "icon": "ability_dualwield.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Close Quarters Combat",
             "icon": "inv_weapon_shortblade_05.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Surprise Attack",
             "icon": "ability_rogue_surpriseattack.jpg",
@@ -949,29 +964,34 @@
             "name": "Weapon Expertise",
             "icon": "spell_holy_blessingofstrength.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Blade Rush",
             "icon": "ability_warrior_weaponmastery.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Aggression",
             "icon": "ability_racial_avatar.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Adrenaline Rush",
             "icon": "spell_shadow_shadowworddominate.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Subtlety": {
@@ -991,17 +1011,17 @@
             "name": "Improved Gouge",
             "icon": "ability_gouge.jpg",
             "maxPoints": 3
-          },
-          {
-            "name": "Improved Ambush",
-            "icon": "ability_rogue_ambush.jpg",
-            "maxPoints": 3
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Improved Ambush",
+            "icon": "ability_rogue_ambush.jpg",
+            "maxPoints": 3
+          },
           {
             "name": "Elusiveness",
             "icon": "spell_magic_lesserinvisibilty.jpg",
@@ -1011,8 +1031,13 @@
             "name": "Serrated Blades",
             "icon": "inv_sword_17.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Initiative",
             "icon": "spell_shadow_fumble.jpg",
             "maxPoints": 3
@@ -1021,12 +1046,7 @@
             "name": "Improved Ghostly Strike",
             "icon": "inv_sword_02.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Smoke Bomb",
             "icon": "spell_smoke_bomb_5.jpg",
@@ -1036,8 +1056,13 @@
             "name": "Hemorrhage",
             "icon": "spell_shadow_lifedrain.jpg",
             "maxPoints": 1
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Cloaked in Shadows",
             "icon": "spell_cloaked_in_shadows_2.jpg",
             "maxPoints": 2
@@ -1046,18 +1071,18 @@
             "name": "Blackjack",
             "icon": "ability_sap.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Blinding Haze",
             "icon": "ability_rogue_shadowstep.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Dirty Deeds",
             "icon": "spell_shadow_summonsuccubus.jpg",
             "maxPoints": 2
@@ -1071,17 +1096,17 @@
             "name": "Shadow of Death",
             "icon": "spell_shadow_of_death_3b.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Bloody Mess",
             "icon": "spell_shadow_bloodboil.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Honor Among Thieves",
             "icon": "inv_throwingknife_05.jpg",
@@ -1091,14 +1116,19 @@
             "name": "Tricks of the Trade",
             "icon": "inv_misc_key_03.jpg",
             "maxPoints": 5
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Mark for Death",
             "icon": "ability_creature_cursed_02.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     }
   },
@@ -1115,8 +1145,13 @@
             "name": "Concussion",
             "icon": "spell_fire_fireball.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Earth's Grasp",
             "icon": "spell_nature_stoneclawtotem.jpg",
             "maxPoints": 2
@@ -1125,18 +1160,18 @@
             "name": "Elemental Warding",
             "icon": "spell_nature_elementalabsorption.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Elemental Devastation",
             "icon": "spell_fire_elementaldevastation.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Elemental Focus",
             "icon": "spell_shadow_manaburn.jpg",
             "maxPoints": 1
@@ -1150,18 +1185,18 @@
             "name": "Call of Thunder",
             "icon": "spell_nature_callstorm.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Improved Molten Blast",
             "icon": "spell_fire_meteorstorm.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Improved Fire Totems",
             "icon": "spell_fire_sealoffire.jpg",
             "maxPoints": 2
@@ -1177,11 +1212,11 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 10
+        "requiredPoints": 15
       },
-      "4": {
+      "5": {
         "talents": [
-          {
+                    {
             "name": "Storm Reach",
             "icon": "spell_nature_stormreach.jpg",
             "maxPoints": 2
@@ -1197,22 +1232,27 @@
             "maxPoints": 2
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 20
       },
-      "5": {
+      "6": {
         "talents": [
           {
             "name": "Lightning Mastery",
             "icon": "spell_lightning_lightningbolt01.jpg",
             "maxPoints": 5
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Earthquake",
             "icon": "spell_nature_earthquake.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Enhancement": {
@@ -1227,8 +1267,13 @@
             "name": "Shield Specialization",
             "icon": "inv_shield_06.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Totemic Alignment",
             "icon": "spell_nature_agitatingtotem.jpg",
             "maxPoints": 2
@@ -1237,12 +1282,7 @@
             "name": "Thundering Strikes",
             "icon": "ability_thunderbolt.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Stable Shields",
             "icon": "spell_nature_lightningshield.jpg",
@@ -1252,8 +1292,13 @@
             "name": "Improved Ghost Wolf",
             "icon": "spell_nature_spiritwolf.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Calming Winds",
             "icon": "spell_nature_tranquility.jpg",
             "maxPoints": 3
@@ -1262,18 +1307,18 @@
             "name": "Lightning Strike",
             "icon": "spell_nature_thunderclap.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Ancestral Guardian",
             "icon": "spell_nature_ancestralguardian.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Flurry",
             "icon": "ability_ghoulfrenzy.jpg",
             "maxPoints": 5
@@ -1282,17 +1327,17 @@
             "name": "Spirit Armor",
             "icon": "spell_nature_spiritarmor.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Enhancing Totems",
             "icon": "spell_nature_earthbindtotem.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Elemental Weapons",
             "icon": "spell_fire_flametounge.jpg",
@@ -1302,16 +1347,21 @@
             "name": "Stormstrike",
             "icon": "ability_shaman_stormstrike.jpg",
             "maxPoints": 1
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Element's Grace",
             "icon": "spell_fire_enchantweapon.jpg",
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 25
       },
-      "5": {
+      "7": {
         "talents": [
           {
             "name": "Bloodlust",
@@ -1319,7 +1369,7 @@
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Restoration": {
@@ -1334,8 +1384,13 @@
             "name": "Tidal Focus",
             "icon": "spell_frost_manarecharge.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Improved Reincarnation",
             "icon": "spell_nature_reincarnation.jpg",
             "maxPoints": 2
@@ -1344,18 +1399,18 @@
             "name": "Ancestral Healing",
             "icon": "spell_nature_undyingstrength.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Tidal Mastery",
             "icon": "spell_nature_tranquility.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Healing Way",
             "icon": "spell_nature_healingway.jpg",
             "maxPoints": 3
@@ -1369,18 +1424,18 @@
             "name": "Totemic Mastery",
             "icon": "spell_nature_nullward.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Nature's Grace",
             "icon": "spell_nature_healingtouch.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Restorative Totems",
             "icon": "spell_nature_manaregentotem.jpg",
             "maxPoints": 5
@@ -1389,17 +1444,17 @@
             "name": "Improved Water Shield",
             "icon": "ability_shaman_watershield.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Tidal Surge",
             "icon": "spell_arcane_manatap.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Ancestral Swiftness",
             "icon": "spell_nature_ravenform.jpg",
@@ -1409,16 +1464,21 @@
             "name": "Undertow",
             "icon": "spell_shaman_tidalwaves.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Improved Chain Heal",
             "icon": "spell_nature_healingwavegreater.jpg",
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 25
       },
-      "5": {
+      "7": {
         "talents": [
           {
             "name": "Spirit Link",
@@ -1426,7 +1486,7 @@
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     }
   },
@@ -1498,23 +1558,28 @@
             "name": "Nature's Reach",
             "icon": "spell_nature_naturetouchgrow.jpg",
             "maxPoints": 2
-          },
-          {
-            "name": "Vengeance",
-            "icon": "spell_nature_purge.jpg",
-            "maxPoints": 5
           }
         ],
         "requiredPoints": 10
       },
       "4": {
         "talents": [
+                    {
+            "name": "Vengeance",
+            "icon": "spell_nature_purge.jpg",
+            "maxPoints": 5
+          },
           {
             "name": "Moonglow",
             "icon": "spell_nature_sentinal.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Owlkin Frenzy",
             "icon": "ability_druid_owlkinfrenzy.jpg",
             "maxPoints": 3
@@ -1528,17 +1593,17 @@
             "name": "Nature's Grace",
             "icon": "spell_nature_naturesblessing.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Improved Starfire",
             "icon": "spell_arcane_starfire.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Balance of All Things",
             "icon": "ability_druid_manatree.jpg",
@@ -1548,14 +1613,19 @@
             "name": "Gale Winds",
             "icon": "ability_druid_galewinds.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Eclipse",
             "icon": "ability_druid_eclipse.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Feral Combat": {
@@ -1570,8 +1640,13 @@
             "name": "Feral Aggression",
             "icon": "ability_druid_demoralizingroar.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Feral Instinct",
             "icon": "ability_ambush.jpg",
             "maxPoints": 3
@@ -1580,18 +1655,18 @@
             "name": "Brutal Impact",
             "icon": "ability_druid_bash.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Thick Hide",
             "icon": "inv_misc_pelt_bear_03.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Open Wounds",
             "icon": "ability_druid_disembowel.jpg",
             "maxPoints": 3
@@ -1605,12 +1680,7 @@
             "name": "Feral Charge",
             "icon": "ability_hunter_pet_bear.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Sharpened Claws",
             "icon": "inv_misc_monsterclaw_04.jpg",
@@ -1620,8 +1690,13 @@
             "name": "Primal Fury",
             "icon": "ability_racial_cannibalize.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Predatory Strikes",
             "icon": "ability_hunter_pet_cat.jpg",
             "maxPoints": 3
@@ -1630,18 +1705,18 @@
             "name": "Blood Frenzy",
             "icon": "ability_ghoulfrenzy.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Improved Shred",
             "icon": "spell_shadow_vampiricaura.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Ancient Brutality",
             "icon": "spell_shadow_unholyfrenzy.jpg",
             "maxPoints": 2
@@ -1650,29 +1725,34 @@
             "name": "Berserk",
             "icon": "ability_druid_berserk.jpg",
             "maxPoints": 1
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Heart of the Wild",
             "icon": "spell_holy_blessingofagility.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Carnage",
             "icon": "ability_druid_ravage.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Leader of the Pack",
             "icon": "spell_nature_unyeildingstamina.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Restoration": {
@@ -1687,8 +1767,13 @@
             "name": "Furor",
             "icon": "spell_holy_blessingofstamina.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Improved Healing Touch",
             "icon": "spell_nature_healingtouch.jpg",
             "maxPoints": 5
@@ -1697,18 +1782,18 @@
             "name": "Nature's Focus",
             "icon": "spell_nature_healingwavegreater.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Subtlety",
             "icon": "ability_eyeoftheowl.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Swiftmend",
             "icon": "inv_relics_idolofrejuvenation.jpg",
             "maxPoints": 1
@@ -1724,11 +1809,11 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 5
+        "requiredPoints": 10
       },
-      "3": {
+      "4": {
         "talents": [
-          {
+                    {
             "name": "Gift of Nature",
             "icon": "spell_nature_protectionformnature.jpg",
             "maxPoints": 5
@@ -1737,8 +1822,12 @@
             "name": "Tranquil Spirit",
             "icon": "spell_holy_elunesgrace.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [          {
             "name": "Aessina's Bloom",
             "icon": "inv_misc_herb_02.jpg",
             "maxPoints": 2
@@ -1747,17 +1836,17 @@
             "name": "Nature's Swiftness",
             "icon": "spell_nature_ravenform.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Preservation",
             "icon": "inv_relics_idolofhealth.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Improved Regrowth",
             "icon": "spell_nature_resistnature.jpg",
@@ -1769,9 +1858,9 @@
             "maxPoints": 2
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 25
       },
-      "5": {
+      "7": {
         "talents": [
           {
             "name": "Tree of Life Form",
@@ -1779,7 +1868,7 @@
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     }
   },
@@ -1801,17 +1890,17 @@
             "name": "Improved Arcane Missiles",
             "icon": "spell_nature_starfall.jpg",
             "maxPoints": 5
-          },
-          {
-            "name": "Wand Specialization",
-            "icon": "inv_wand_01.jpg",
-            "maxPoints": 2
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Wand Specialization",
+            "icon": "inv_wand_01.jpg",
+            "maxPoints": 2
+          },
           {
             "name": "Arcane Focus",
             "icon": "spell_holy_devotion.jpg",
@@ -1821,8 +1910,13 @@
             "name": "Arcane Concentration",
             "icon": "spell_shadow_manaburn.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Magic Attunement",
             "icon": "spell_nature_abolishmagic.jpg",
             "maxPoints": 1
@@ -1831,18 +1925,18 @@
             "name": "Arcane Impact",
             "icon": "spell_nature_wispsplode.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Arcane Rupture",
             "icon": "spell_arcane_blast.jpg",
             "maxPoints": 1
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Improved Mana Shield",
             "icon": "spell_shadow_detectlesserinvisibility.jpg",
             "maxPoints": 2
@@ -1856,18 +1950,18 @@
             "name": "Temporal Convergence",
             "icon": "spell_nature_stormreach.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Arcane Meditation",
             "icon": "spell_shadow_siphonmana.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Arcane Instability",
             "icon": "spell_shadow_teleport.jpg",
             "maxPoints": 3
@@ -1881,29 +1975,34 @@
             "name": "Accelerated Arcana",
             "icon": "spell_arcane_portaldarnassus.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Arcane Potency",
             "icon": "inv_enchant_essencemagiclarge.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Resonance Cascade",
             "icon": "spell_mage_focusingcrystal.jpg",
             "maxPoints": 5
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Arcane Power",
             "icon": "spell_nature_lightning.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Fire": {
@@ -1918,8 +2017,13 @@
             "name": "Impact",
             "icon": "spell_fire_meteorstorm.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Ignite",
             "icon": "spell_fire_incinerate.jpg",
             "maxPoints": 5
@@ -1928,18 +2032,18 @@
             "name": "Flame Throwing",
             "icon": "spell_fire_flare.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Improved Fire Blast",
             "icon": "spell_fire_fireball.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Incinerate",
             "icon": "spell_fire_flameshock.jpg",
             "maxPoints": 2
@@ -1953,18 +2057,18 @@
             "name": "Pyroblast",
             "icon": "spell_fire_fireball02.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Burning Soul",
             "icon": "spell_fire_fire.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Fire Vulnerability",
             "icon": "spell_fire_soulburn.jpg",
             "maxPoints": 3
@@ -1980,11 +2084,11 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 10
+        "requiredPoints": 15
       },
-      "4": {
+      "5": {
         "talents": [
-          {
+                    {
             "name": "Blast Wave",
             "icon": "spell_holy_excorcism_02.jpg",
             "maxPoints": 1
@@ -2000,22 +2104,27 @@
             "maxPoints": 2
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 20
       },
-      "5": {
+      "6": {
         "talents": [
           {
             "name": "Fire Power",
             "icon": "spell_fire_immolation.jpg",
             "maxPoints": 5
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Combustion",
             "icon": "spell_fire_sealoffire.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Frost": {
@@ -2035,17 +2144,17 @@
             "name": "Elemental Precision",
             "icon": "spell_ice_magicdamage.jpg",
             "maxPoints": 3
-          },
-          {
-            "name": "Piercing Ice",
-            "icon": "spell_frost_frostbolt.jpg",
-            "maxPoints": 3
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Piercing Ice",
+            "icon": "spell_frost_frostbolt.jpg",
+            "maxPoints": 3
+          },
           {
             "name": "Frostbite",
             "icon": "spell_frost_frostarmor.jpg",
@@ -2060,17 +2169,17 @@
             "name": "Permafrost",
             "icon": "spell_frost_wisp.jpg",
             "maxPoints": 3
-          },
-          {
-            "name": "Ice Shards",
-            "icon": "spell_frost_iceshard.jpg",
-            "maxPoints": 5
           }
         ],
         "requiredPoints": 5
       },
       "3": {
         "talents": [
+                    {
+            "name": "Ice Shards",
+            "icon": "spell_frost_iceshard.jpg",
+            "maxPoints": 5
+          },
           {
             "name": "Cold Snap",
             "icon": "spell_frost_wizardmark.jpg",
@@ -2080,8 +2189,13 @@
             "name": "Improved Blizzard",
             "icon": "spell_frost_icestorm.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Arctic Reach",
             "icon": "spell_shadow_darkritual.jpg",
             "maxPoints": 2
@@ -2090,18 +2204,18 @@
             "name": "Frost Channeling",
             "icon": "spell_frost_stun.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Shatter",
             "icon": "spell_frost_frostshock.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Ice Block",
             "icon": "spell_frost_frost.jpg",
             "maxPoints": 1
@@ -2117,9 +2231,9 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 20
       },
-      "5": {
+      "6": {
         "talents": [
           {
             "name": "Winter's Chill",
@@ -2130,14 +2244,19 @@
             "name": "Flash Freeze",
             "icon": "spell_fire_frostresistancetotem.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Ice Barrier",
             "icon": "spell_ice_lament.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     }
   },
@@ -2159,17 +2278,17 @@
             "name": "Sinister Pursuit",
             "icon": "ability_rogue_envelopingshadows.jpg",
             "maxPoints": 3
-          },
-          {
-            "name": "Improved Curse of Weakness",
-            "icon": "spell_shadow_curseofmannoroth.jpg",
-            "maxPoints": 2
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Improved Curse of Weakness",
+            "icon": "spell_shadow_curseofmannoroth.jpg",
+            "maxPoints": 2
+          },
           {
             "name": "Resilient Shadows",
             "icon": "spell_shadow_soulleech_1.jpg",
@@ -2184,17 +2303,17 @@
             "name": "Improved Drains",
             "icon": "spell_shadow_lifedrain02.jpg",
             "maxPoints": 2
-          },
-          {
-            "name": "Improved Curse of Agony",
-            "icon": "spell_shadow_curseofsargeras.jpg",
-            "maxPoints": 3
           }
         ],
         "requiredPoints": 5
       },
       "3": {
         "talents": [
+                    {
+            "name": "Improved Curse of Agony",
+            "icon": "spell_shadow_curseofsargeras.jpg",
+            "maxPoints": 3
+          },
           {
             "name": "Fel Concentration",
             "icon": "spell_shadow_fingerofdeath.jpg",
@@ -2204,8 +2323,13 @@
             "name": "Curse of Exhaustion",
             "icon": "spell_shadow_grimward.jpg",
             "maxPoints": 1
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Grim Reach",
             "icon": "spell_shadow_callofbone.jpg",
             "maxPoints": 2
@@ -2214,12 +2338,7 @@
             "name": "Nightfall",
             "icon": "spell_shadow_twilight.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Soul Siphon",
             "icon": "spell_shadow_haunting.jpg",
@@ -2234,34 +2353,44 @@
             "name": "Siphon Life",
             "icon": "spell_shadow_requiem.jpg",
             "maxPoints": 1
-          },
-          {
-            "name": "Improved Curse of Exhaustion",
-            "icon": "spell_shadow_grimward.jpg",
-            "maxPoints": 2
           }
         ],
         "requiredPoints": 15
       },
       "5": {
         "talents": [
+                    {
+            "name": "Improved Curse of Exhaustion",
+            "icon": "spell_shadow_grimward.jpg",
+            "maxPoints": 2
+          },
           {
             "name": "Malediction",
             "icon": "spell_shadow_curseofachimonde.jpg",
             "maxPoints": 1
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Shadow Mastery",
             "icon": "spell_shadow_shadetruesight.jpg",
             "maxPoints": 5
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Dark Harvest",
             "icon": "spell_shadow_soulleech.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Demonology": {
@@ -2281,17 +2410,17 @@
             "name": "Soul Entrapment",
             "icon": "trade_archaeology_highbornesoulmirror.jpg",
             "maxPoints": 3
-          },
-          {
-            "name": "Soul Funnel",
-            "icon": "spell_shadow_lifedrain.jpg",
-            "maxPoints": 2
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Soul Funnel",
+            "icon": "spell_shadow_lifedrain.jpg",
+            "maxPoints": 2
+          },
           {
             "name": "Demonic Aegis",
             "icon": "spell_shadow_ragingscream.jpg",
@@ -2301,8 +2430,13 @@
             "name": "Fel Intellect",
             "icon": "spell_holy_magicalsentry.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Fel Domination",
             "icon": "spell_nature_removecurse.jpg",
             "maxPoints": 1
@@ -2311,18 +2445,18 @@
             "name": "Fel Stamina",
             "icon": "spell_shadow_antishadow.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Demonic Sacrifice",
             "icon": "spell_shadow_psychicscream.jpg",
             "maxPoints": 1
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Improved Stones",
             "icon": "inv_jewelry_talisman_fireice.jpg",
             "maxPoints": 2
@@ -2336,18 +2470,18 @@
             "name": "Nether Studies",
             "icon": "inv_misc_book_06.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Unholy Power",
             "icon": "spell_shadow_shadowworddominate.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Power Overwhelming",
             "icon": "ability_warlock_power_overwhelming.jpg",
             "maxPoints": 1
@@ -2358,9 +2492,9 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 20
       },
-      "5": {
+      "6": {
         "talents": [
           {
             "name": "Master Demonologist",
@@ -2371,14 +2505,19 @@
             "name": "Unleashed Potential",
             "icon": "ability_warlock_demonicpower.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Soul Link",
             "icon": "spell_shadow_gathershadows.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Destruction": {
@@ -2393,8 +2532,13 @@
             "name": "Cataclysm",
             "icon": "spell_fire_windsofwoe.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Demonic Swiftness",
             "icon": "spell_shadow_curseoftounges.jpg",
             "maxPoints": 2
@@ -2403,18 +2547,18 @@
             "name": "Bane",
             "icon": "spell_shadow_deathpact.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Aftermath",
             "icon": "spell_fire_fire.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Intensity",
             "icon": "spell_fire_lavaspawn.jpg",
             "maxPoints": 2
@@ -2430,11 +2574,11 @@
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 5
+        "requiredPoints": 10
       },
-      "3": {
+      "4": {
         "talents": [
-          {
+                    {
             "name": "Pyroclasm",
             "icon": "spell_fire_volcano.jpg",
             "maxPoints": 2
@@ -2448,17 +2592,17 @@
             "name": "Improved Searing Pain",
             "icon": "spell_fire_soulburn.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Improved Soul Fire",
             "icon": "spell_fire_fireball02.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Improved Immolate",
             "icon": "spell_fire_immolation.jpg",
@@ -2468,16 +2612,21 @@
             "name": "Ruin",
             "icon": "spell_shadow_shadowwordpain.jpg",
             "maxPoints": 1
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Emberstorm",
             "icon": "spell_fire_selfdestruct.jpg",
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 25
       },
-      "5": {
+      "7": {
         "talents": [
           {
             "name": "Conflagrate",
@@ -2485,7 +2634,7 @@
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     }
   },
@@ -2507,17 +2656,17 @@
             "name": "Improved Rend",
             "icon": "ability_gouge.jpg",
             "maxPoints": 2
-          },
-          {
-            "name": "Improved Charge",
-            "icon": "ability_warrior_charge.jpg",
-            "maxPoints": 2
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Improved Charge",
+            "icon": "ability_warrior_charge.jpg",
+            "maxPoints": 2
+          },
           {
             "name": "Deflection",
             "icon": "ability_parry.jpg",
@@ -2527,8 +2676,13 @@
             "name": "Improved Thunder Clap",
             "icon": "ability_thunderclap.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Master Strike",
             "icon": "master_strike_1.jpg",
             "maxPoints": 1
@@ -2537,18 +2691,18 @@
             "name": "Improved Overpower",
             "icon": "inv_sword_05.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Deep Wounds",
             "icon": "ability_backstab.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Two-Handed Weapon Specialization",
             "icon": "inv_axe_09.jpg",
             "maxPoints": 3
@@ -2557,17 +2711,17 @@
             "name": "Impale",
             "icon": "ability_searingarrow.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Master of Arms",
             "icon": "garrison_weaponupgrade.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Sweeping Strikes",
             "icon": "ability_rogue_slicedice.jpg",
@@ -2584,9 +2738,9 @@
             "maxPoints": 3
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 20
       },
-      "5": {
+      "6": {
         "talents": [
           {
             "name": "Improved Slam",
@@ -2597,14 +2751,19 @@
             "name": "Boundless Anger",
             "icon": "ability_warrior_strengthofarms.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Mortal Strike",
             "icon": "ability_warrior_savageblow.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Fury": {
@@ -2619,8 +2778,13 @@
             "name": "Cruelty",
             "icon": "ability_rogue_eviscerate.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Dual Wield Specialization",
             "icon": "ability_dualwield.jpg",
             "maxPoints": 5
@@ -2631,11 +2795,11 @@
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 0
+        "requiredPoints": 5
       },
-      "2": {
+      "3": {
         "talents": [
-          {
+                    {
             "name": "Improved Shouts",
             "icon": "ability_warrior_commandingshout.jpg",
             "maxPoints": 5
@@ -2649,17 +2813,17 @@
             "name": "Blood Craze",
             "icon": "spell_shadow_summonimp.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Battlefield Mobility",
             "icon": "ability_rogue_sprint.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Enrage",
             "icon": "spell_shadow_unholyfrenzy.jpg",
@@ -2669,8 +2833,13 @@
             "name": "Improved Pummel",
             "icon": "inv_gauntlets_04.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Improved Whirlwind",
             "icon": "ability_whirlwind.jpg",
             "maxPoints": 3
@@ -2679,17 +2848,17 @@
             "name": "Death Wish",
             "icon": "spell_shadow_deathpact.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 10
-      },
-      "4": {
-        "talents": [
+          },
           {
             "name": "Improved Execute",
             "icon": "inv_sword_48.jpg",
             "maxPoints": 2
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Improved Berserker Rage",
             "icon": "spell_nature_ancestralguardian.jpg",
@@ -2699,24 +2868,24 @@
             "name": "Flurry",
             "icon": "ability_ghoulfrenzy.jpg",
             "maxPoints": 5
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Blood Drinker",
             "icon": "racial_troll_berserk.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Bloodthirst",
             "icon": "spell_nature_bloodlust.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Protection": {
@@ -2736,23 +2905,28 @@
             "name": "Anticipation",
             "icon": "spell_nature_mirrorimage.jpg",
             "maxPoints": 3
-          },
-          {
-            "name": "Iron Will",
-            "icon": "spell_magic_magearmor.jpg",
-            "maxPoints": 5
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Iron Will",
+            "icon": "spell_magic_magearmor.jpg",
+            "maxPoints": 5
+          },
           {
             "name": "Toughness",
             "icon": "spell_holy_devotion.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Last Stand",
             "icon": "spell_holy_ashestoashes.jpg",
             "maxPoints": 1
@@ -2766,18 +2940,18 @@
             "name": "Improved Taunt",
             "icon": "spell_nature_reincarnation.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Improved Revenge",
             "icon": "ability_warrior_revenge.jpg",
             "maxPoints": 3
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Gag Order",
             "icon": "ability_warrior_shieldbash.jpg",
             "maxPoints": 2
@@ -2793,11 +2967,11 @@
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 10
+        "requiredPoints": 15
       },
-      "4": {
+      "5": {
         "talents": [
-          {
+                    {
             "name": "One-Handed Weapon Specialization",
             "icon": "inv_sword_20.jpg",
             "maxPoints": 5
@@ -2818,9 +2992,9 @@
             "maxPoints": 2
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 20
       },
-      "5": {
+      "6": {
         "talents": [
           {
             "name": "Improved Shield Wall",
@@ -2831,14 +3005,19 @@
             "name": "Defensive Tactics",
             "icon": "ability_warrior_stalwartprotector.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Concussion Blow",
             "icon": "ability_thunderbolt.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     }
   },
@@ -2860,17 +3039,17 @@
             "name": "Mental Agility",
             "icon": "ability_hibernation.jpg",
             "maxPoints": 5
-          },
-          {
-            "name": "Silent Resolve",
-            "icon": "spell_nature_manaregentotem.jpg",
-            "maxPoints": 5
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Silent Resolve",
+            "icon": "spell_nature_manaregentotem.jpg",
+            "maxPoints": 5
+          },
           {
             "name": "Unbreakable Will",
             "icon": "spell_magic_magearmor.jpg",
@@ -2885,17 +3064,17 @@
             "name": "Improved Power Word: Fortitude",
             "icon": "spell_holy_wordfortitude.jpg",
             "maxPoints": 2
-          },
-          {
-            "name": "Improved Inner Fire",
-            "icon": "spell_holy_innerfire.jpg",
-            "maxPoints": 2
           }
         ],
         "requiredPoints": 5
       },
       "3": {
         "talents": [
+                    {
+            "name": "Improved Inner Fire",
+            "icon": "spell_holy_innerfire.jpg",
+            "maxPoints": 2
+          },
           {
             "name": "Inner Focus",
             "icon": "spell_frost_windwalkon.jpg",
@@ -2910,23 +3089,28 @@
             "name": "Meditation",
             "icon": "spell_nature_sleep.jpg",
             "maxPoints": 3
-          },
-          {
-            "name": "Searing Light",
-            "icon": "spell_holy_searinglightpriest.jpg",
-            "maxPoints": 3
           }
         ],
         "requiredPoints": 10
       },
       "4": {
         "talents": [
+                    {
+            "name": "Searing Light",
+            "icon": "spell_holy_searinglightpriest.jpg",
+            "maxPoints": 3
+          },
           {
             "name": "Purifying Flames",
             "icon": "spell_holy_searinglight.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 15
+      },
+      "5": {
+        "talents": [
+                    {
             "name": "Mental Strength",
             "icon": "spell_nature_enchantarmor.jpg",
             "maxPoints": 3
@@ -2935,29 +3119,34 @@
             "name": "Enlighten",
             "icon": "btnholyscriptures.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 15
-      },
-      "5": {
-        "talents": [
+          },
           {
             "name": "Resurgent Shield",
             "icon": "spell_holy_blessingofprotection.jpg",
             "maxPoints": 1
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Force of Will",
             "icon": "spell_nature_slowingtotem.jpg",
             "maxPoints": 5
-          },
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
           {
             "name": "Chastise",
             "icon": "spell_holy_unyieldingfaith.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Holy": {
@@ -2977,17 +3166,17 @@
             "name": "Divinity",
             "icon": "spell_holy_sealofsalvation.jpg",
             "maxPoints": 5
-          },
-          {
-            "name": "Divine Fury",
-            "icon": "spell_holy_sealofwrath.jpg",
-            "maxPoints": 5
           }
         ],
         "requiredPoints": 0
       },
       "2": {
         "talents": [
+                    {
+            "name": "Divine Fury",
+            "icon": "spell_holy_sealofwrath.jpg",
+            "maxPoints": 5
+          },
           {
             "name": "Spell Warding",
             "icon": "spell_holy_spellwarding.jpg",
@@ -2997,8 +3186,13 @@
             "name": "Holy Reach",
             "icon": "spell_holy_purify.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Blessed Recovery",
             "icon": "spell_holy_blessedrecovery.jpg",
             "maxPoints": 3
@@ -3007,18 +3201,18 @@
             "name": "Inspiration",
             "icon": "spell_holy_layonhands.jpg",
             "maxPoints": 3
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Holy Nova",
             "icon": "spell_holy_holynova.jpg",
             "maxPoints": 1
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Swift Recovery",
             "icon": "spell_holy_resurrection.jpg",
             "maxPoints": 2
@@ -3034,11 +3228,11 @@
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 10
+        "requiredPoints": 15
       },
-      "4": {
+      "5": {
         "talents": [
-          {
+                    {
             "name": "Spirit of Redemption",
             "icon": "inv_enchant_essenceeternallarge.jpg",
             "maxPoints": 1
@@ -3047,16 +3241,21 @@
             "name": "Reservoir of Light",
             "icon": "spell_holy_summonlightwell.jpg",
             "maxPoints": 3
-          },
+          }
+        ],
+        "requiredPoints": 20
+      },
+      "6": {
+        "talents": [
           {
             "name": "Spiritual Healing",
             "icon": "spell_nature_moonglow.jpg",
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 25
       },
-      "5": {
+      "7": {
         "talents": [
           {
             "name": "Proclaim Champion",
@@ -3064,7 +3263,7 @@
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     },
     "Shadow": {
@@ -3079,8 +3278,13 @@
             "name": "Blackout",
             "icon": "spell_shadow_gathershadows.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 0
+      },
+      "2": {
+        "talents": [
+                    {
             "name": "Shadow Affinity",
             "icon": "spell_shadow_shadowward.jpg",
             "maxPoints": 3
@@ -3089,18 +3293,18 @@
             "name": "Improved Shadow Word: Pain",
             "icon": "spell_shadow_shadowwordpain.jpg",
             "maxPoints": 2
-          }
-        ],
-        "requiredPoints": 0
-      },
-      "2": {
-        "talents": [
+          },
           {
             "name": "Shadow Focus",
             "icon": "spell_shadow_burningspirit.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 5
+      },
+      "3": {
+        "talents": [
+                    {
             "name": "Improved Psychic Scream",
             "icon": "spell_shadow_psychicscream.jpg",
             "maxPoints": 2
@@ -3114,18 +3318,18 @@
             "name": "Mind Flay",
             "icon": "spell_shadow_siphonmana.jpg",
             "maxPoints": 1
-          }
-        ],
-        "requiredPoints": 5
-      },
-      "3": {
-        "talents": [
+          },
           {
             "name": "Improved Mana Burn",
             "icon": "spell_shadow_manaburn.jpg",
             "maxPoints": 2
-          },
-          {
+          }
+        ],
+        "requiredPoints": 10
+      },
+      "4": {
+        "talents": [
+                    {
             "name": "Improved Fade",
             "icon": "spell_magic_lesserinvisibilty.jpg",
             "maxPoints": 2
@@ -3141,11 +3345,11 @@
             "maxPoints": 5
           }
         ],
-        "requiredPoints": 10
+        "requiredPoints": 15
       },
-      "4": {
+      "5": {
         "talents": [
-          {
+                    {
             "name": "Silence",
             "icon": "spell_shadow_impphaseshift.jpg",
             "maxPoints": 1
@@ -3161,22 +3365,27 @@
             "maxPoints": 2
           }
         ],
-        "requiredPoints": 15
+        "requiredPoints": 20
       },
-      "5": {
+      "6": {
         "talents": [
           {
             "name": "Darkness",
             "icon": "spell_shadow_twilight.jpg",
             "maxPoints": 5
-          },
-          {
+          }
+        ],
+        "requiredPoints": 25
+      },
+      "7": {
+        "talents": [
+                    {
             "name": "Shadowform",
             "icon": "spell_shadow_shadowform.jpg",
             "maxPoints": 1
           }
         ],
-        "requiredPoints": 20
+        "requiredPoints": 30
       }
     }
   }
