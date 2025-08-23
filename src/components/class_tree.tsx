@@ -1,5 +1,5 @@
-import talents from '../data/turtle-wow-talents';
-import type { Talent, TalentTier } from '../types/types';
+import talents from '../data/talents_structured.json';
+import type { Talent, TalentTier, SpecTalents } from '../types/types';
 import { useTalentContext } from '../context/TalentContext';
 
 interface TreeProps {
@@ -11,17 +11,32 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
     const { dispatch, getTalentPoints, getSpecTotalPoints, canAssignPoint } = useTalentContext();
     
     // Obtener los talentos de la clase y especificación
-    const classTalents = talents[wowClass];
-    if (!classTalents || !classTalents[specifyTree]) {
+    const talentsData = talents as Record<string, Record<string, SpecTalents>>;
+    const classTalents = talentsData[wowClass];
+    
+    // Verificación de debugging
+    console.log('Class:', wowClass, 'Spec:', specifyTree);
+    console.log('Available classes:', Object.keys(talents));
+    console.log('Class talents:', classTalents);
+    
+    if (!classTalents) {
         return (
             <div className="talent-tree">
                 <h3>Talents of the {specifyTree} tree</h3>
-                <p>No talents found for {wowClass} - {specifyTree}</p>
+                <p>Class "{wowClass}" not found. Available classes: {Object.keys(talents).join(', ')}</p>
             </div>
         );
     }
-
-    const specTalents = classTalents[specifyTree];
+    
+    const specTalents = classTalents[specifyTree] as SpecTalents | undefined;
+    if (!specTalents) {
+        return (
+            <div className="talent-tree">
+                <h3>Talents of the {specifyTree} tree</h3>
+                <p>Specialization "{specifyTree}" not found for {wowClass}. Available specs: {Object.keys(classTalents).join(', ')}</p>
+            </div>
+        );
+    }
     const specTotalPoints = getSpecTotalPoints(specifyTree);
 
     // Manejar clic izquierdo - agregar punto
@@ -75,11 +90,13 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
                 <span className="spec-points">{specTotalPoints} points spent</span>
             </div>
             <div className="talent-tiers">
-                {Object.entries(specTalents).map(([tier, talentTier]: [string, TalentTier]) => (
-                    <div key={tier} className="talent-tier">
-                        <h4>Tier {tier} (Required: {talentTier.requiredPoints} points)</h4>
-                        <div className="talents-row">
-                            {talentTier.talents.map((talent: Talent, index: number) => {
+                {Object.entries(specTalents).map(([tier, talentTierData]) => {
+                    const talentTier = talentTierData as TalentTier;
+                    return (
+                        <div key={tier} className="talent-tier">
+                            <h4>Tier {tier} (Required: {talentTier.requiredPoints} points)</h4>
+                            <div className="talents-row">
+                                {talentTier.talents.map((talent: Talent, index: number) => {
                                 const talentState = getTalentState(tier, index, talentTier.requiredPoints, talent.maxPoints);
                                 
                                 return (
@@ -117,7 +134,8 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
                             })}
                         </div>
                     </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );
