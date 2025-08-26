@@ -468,7 +468,12 @@
           {
             "name": "Divine Favor",
             "icon": "spell_holy_heal.jpg",
-            "maxPoints": 5
+            "maxPoints": 5,
+            "talentRequired": {
+              "tier": 5,
+              "index": 1,
+              "points": 1
+            }
           },
           {
             "name": "Holy Shock",
@@ -483,7 +488,12 @@
           {
             "name": "Holy Power",
             "icon": "spell_holy_power.jpg",
-            "maxPoints": 3
+            "maxPoints": 3,
+            "talentRequired": {
+              "tier": 5,
+              "index": 1,
+              "points": 1
+            }
           },
           {
             "name": "Blessed Strikes",
@@ -545,7 +555,12 @@
                     {
             "name": "Improved Righteous Fury",
             "icon": "spell_holy_sealoffury.jpg",
-            "maxPoints": 3
+            "maxPoints": 3,
+            "talentRequired": {
+              "tier": 2,
+              "index": 0,
+              "points": 1
+            }
           },
           {
             "name": "Blessing of Sanctuary",
@@ -555,7 +570,12 @@
           {
             "name": "Shield Specialization",
             "icon": "inv_shield_06.jpg",
-            "maxPoints": 3
+            "maxPoints": 3,
+            "talentRequired": {
+              "tier": 1,
+              "index": 1,
+              "points": 1
+            }
           },
           {
             "name": "Anticipation",
@@ -585,7 +605,12 @@
                     {
             "name": "Righteous Defense",
             "icon": "ability_warrior_swordandboard.jpg",
-            "maxPoints": 3
+            "maxPoints": 3,
+            "talentRequired": {
+              "tier": 3,
+              "index": 0,
+              "points": 1
+            }
           },
           {
             "name": "Holy Shield",
@@ -615,7 +640,12 @@
           {
             "name": "Bulwark of the Righteous",
             "icon": "ability_warrior_victoryrush.jpg",
-            "maxPoints": 1
+            "maxPoints": 1,
+            "talentRequired": {
+              "tier": 5,
+              "index": 1,
+              "points": 1
+            }
           }
         ],
         "requiredPoints": 30
@@ -707,7 +737,12 @@
           {
             "name": "Vengeance",
             "icon": "ability_racial_avatar.jpg",
-            "maxPoints": 5
+            "maxPoints": 5,
+            "talentRequired": {
+              "tier": 3,
+              "index": 1,
+              "points": 1
+            }
           },
           {
             "name": "Seal of Command",

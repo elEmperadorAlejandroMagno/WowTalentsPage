@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, type ReactNode } from 'react';
 import type { SavedTalentSpec } from '../types/types';
+import talents from '../data/talents_structured.json';
 
 // Tipos para el contexto
 export interface TalentPoints {
@@ -170,7 +171,46 @@ export function TalentProvider({ children }: TalentProviderProps) {
     const specTotalPoints = getSpecTotalPoints(spec);
     if (specTotalPoints < requiredPoints) return false;
     
+    // Verificar talento requerido (talentRequired)
+    if (!checkTalentRequiredInContext(spec, tier, talentIndex)) {
+      return false;
+    }
+    
     return true;
+  };
+  
+  // Función auxiliar para verificar talentRequired en el contexto
+  const checkTalentRequiredInContext = (
+    spec: string,
+    tier: string, 
+    talentIndex: number
+  ): boolean => {
+    try {
+      // Importar dinámicamente el JSON de talentos;
+      const classTalents = JSON.parse(JSON.stringify(talents[state.currentClass as keyof typeof talents]));
+      
+      if (!classTalents || !classTalents[spec]) return true;
+      
+      const specTalents = classTalents[spec];
+      const tierData = specTalents[tier];
+      
+      if (!tierData || !tierData.talents || !tierData.talents[talentIndex]) return true;
+      
+      const talent = tierData.talents[talentIndex];
+      
+      // Si no tiene talentRequired, está OK
+      if (!talent.talentRequired) return true;
+      
+      const required = talent.talentRequired;
+      
+      // Verificar que el talento requerido tenga los puntos necesarios
+      const requiredTalentPoints = getTalentPoints(spec, required.tier.toString(), required.index);
+      return requiredTalentPoints >= required.points;
+      
+    } catch (error) {
+      console.error('Error checking talentRequired:', error);
+      return true; // En caso de error, permitir la asignación
+    }
   };
   
   // Función para guardar especificación actual

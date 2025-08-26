@@ -131,7 +131,7 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
                                                 <div className="tooltip-points">{talentState.currentPoints}/{talent.maxPoints} points</div>
                                                 <div className="tooltip-description">
                                                     {/* Preparado para futuras descripciones */}
-                                                    {talent.description || 'Description will be available soon'}
+                                                    {'Description will be available soon'}
                                                 </div>
                                             </div>
                                         </div>
