@@ -1,0 +1,67 @@
+Hunter
+frenzy -> ferocity
+baited shot -> kill command
+mortal shots -> lethal shots
+trueshot aura -> barrage
+improved steady shot -> steady shot
+lacerate -> carve
+untamed trapper -> trap mastery
+Paladin
+divine favor -> holy shock
+blessed strikes -> holy shock
+daybreak -> holy shock
+righteous defense -> improved righteous fury
+shield specialization -> redoubt
+bulkwark of the righteous -> holy shield
+Warrior
+vengeance -> conviction
+master of arms -> master strike
+deep wounds -> improved rend
+mortal strike -> sweeping strikes
+blood drinker -> enrage
+last stand -> improved bloodrage
+concussion blow -> shield slam
+reprisal -> improved revenge
+Rogue
+noxious assault -> envenom
+lethality -> malice
+riposte -> deflection
+blade rush -> surprise attack
+dual wield specialization -> precision
+mark of death -> preparation
+bloody mess -> hemorrhage
+Priest
+chastise -> enlighten
+resurgent shield -> improved power word: shield
+swift recovery -> improved renew
+proclaim champion -> spirit of redemption
+silence -> improved psychic scream
+shadowform -> vampiric embrace
+vampiric touch -> vampiric embrace
+Shaman
+earthquake -> elemental mastery
+lightning mastery -> call of thunder 
+flurry -> thundering strikes
+bloodlust -> elemental weapons 
+lightning strike -> stable shields
+tidal surge -> healing way 
+spirit link -> improved chain heal
+improved chain heal -> restorative totems
+undertow -> improved water shield
+Mage
+arcane power -> presence of mind
+temporal convergence -> arcane rupture
+combustion -> critical mass 
+hot streak -> pyroblast
+ice barrier -> ice block 
+shatter -> improved frost nova 
+flash freeze -> icicles
+Warlock
+dark harvest -> shadow mastery
+improved curse of exhaustion -> curse of exhaustion
+master summoner -> fel domination
+soul link -> master demonologist
+demonic sacrifice -> soul entrapment
+pyroclasm -> intensity
+conflagrate -> improved immolate
+ruin -> devastation

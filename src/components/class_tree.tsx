@@ -1,7 +1,8 @@
 import talents from '../data/talents_structured.json';
-import type { Talent, TalentTier, SpecTalents } from '../types/types';
+import type { Talent, SpecTalents } from '../types/types';
 import { useTalentContext } from '../context/TalentContext';
-
+import GridTalentArrows from './GridTalentArrows';
+import { normalizeSpecTalents, PositioningStrategy, type TalentGridSlot } from '../utils/talentGridNormalizer';
 interface TreeProps {
     specifyTree: string;
     wowClass?: string;
@@ -38,6 +39,9 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
         );
     }
     const specTotalPoints = getSpecTotalPoints(specifyTree);
+    
+    // Normalizar la especialización para usar grilla uniforme
+    const normalizedSpec = normalizeSpecTalents(specTalents, PositioningStrategy.CENTER_ALIGNED);
 
     // Manejar clic izquierdo - agregar punto
     const handleAddPoint = (tier: string, talentIndex: number, talent: Talent, requiredPoints: number) => {
@@ -89,59 +93,78 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
             <div className="spec-summary">
                 <span className="spec-points">{specTotalPoints} points spent</span>
             </div>
-            <div className="talent-tiers">
-                {Object.entries(specTalents).map(([tier, talentTierData]) => {
-                    const talentTier = talentTierData as TalentTier;
-                    return (
-                        <div key={tier} className="talent-tier">
-                            <h4>Tier {tier} (Required: {talentTier.requiredPoints} points)</h4>
-                            <div className="talents-row">
-                                {talentTier.talents.map((talent: Talent, index: number) => {
-                                const talentState = getTalentState(tier, index, talentTier.requiredPoints, talent.maxPoints);
-                                
-                                return (
-                                    <div 
-                                        key={`${talent.name}-${index}`} 
-                                        className={`talent-item ${
-                                            !talentState.isAvailable ? 'talent-unavailable' :
-                                            talentState.isMaxed ? 'talent-maxed' :
-                                            talentState.currentPoints > 0 ? 'talent-active' :
-                                            talentState.canAssign ? 'talent-available' : 'talent-disabled'
-                                        }`}
-                                        onClick={() => handleAddPoint(tier, index, talent, talentTier.requiredPoints)}
-                                        onContextMenu={(e) => handleRemovePoint(e, tier, index)}
-                                        title={`${talent.name}\nCurrent: ${talentState.currentPoints}/${talent.maxPoints}\nRequired: ${talentTier.requiredPoints} points in ${specifyTree}`}
-                                    >
-                                        <div className="talent-icon">
-                                            <img 
-                                                src={`/icons/${talent.icon}`} 
-                                                alt={talent.name}
-                                                onError={(e) => {
-                                                    // Fallback si la imagen no existe
-                                                    (e.target as HTMLImageElement).src = '/icons/default-talent.svg';
-                                                }}
-                                            />
-                                            {talentState.currentPoints > 0 && (
-                                                <div className="talent-rank">{talentState.currentPoints}</div>
-                                            )}
-                                        </div>
-                                        <div className="talent-tooltip">
-                                            <div className="tooltip-content">
-                                                <div className="tooltip-title">{talent.name}</div>
-                                                <div className="tooltip-points">{talentState.currentPoints}/{talent.maxPoints} points</div>
-                                                <div className="tooltip-description">
-                                                    {/* Preparado para futuras descripciones */}
-                                                    {'Description will be available soon'}
+            <div className="talent-container" style={{ position: 'relative' }}>
+                {/* Componente de flechas usando grilla normalizada */}
+                <GridTalentArrows 
+                    specName={specifyTree} 
+                    normalizedSpec={normalizedSpec}
+                />
+                
+                {/* Renderizado de grilla normalizada */}
+                <div className="talent-tiers">
+                    {Object.entries(normalizedSpec).map(([tierKey, tierData]) => {
+                        return (
+                            <div key={tierKey} className="talent-tier">
+                                <h4>Tier {tierKey} (Required: {tierData.requiredPoints} points)</h4>
+                                <div className="talents-row talent-grid-row">
+                                    {tierData.slots.map((slot: TalentGridSlot, column: number) => {
+                                        if (slot.isEmpty || !slot.talent) {
+                                            // Slot vacío
+                                            return (
+                                                <div 
+                                                    key={`empty-${tierKey}-${column}`}
+                                                    className="talent-slot talent-empty"
+                                                />
+                                            );
+                                        }
+                                        
+                                        // Slot con talento
+                                        const talent = slot.talent;
+                                        const originalIndex = slot.originalIndex!;
+                                        const talentState = getTalentState(tierKey, originalIndex, tierData.requiredPoints, talent.maxPoints);
+                                        
+                                        return (
+                                            <div 
+                                                key={`${talent.name}-${tierKey}-${column}`}
+                                                className={`talent-slot talent-item ${
+                                                    !talentState.isAvailable ? 'talent-unavailable' :
+                                                    talentState.isMaxed ? 'talent-maxed' :
+                                                    talentState.currentPoints > 0 ? 'talent-active' :
+                                                    talentState.canAssign ? 'talent-available' : 'talent-disabled'
+                                                }`}
+                                                onClick={() => handleAddPoint(tierKey, originalIndex, talent, tierData.requiredPoints)}
+                                                onContextMenu={(e) => handleRemovePoint(e, tierKey, originalIndex)}
+                                                title={`${talent.name}\nCurrent: ${talentState.currentPoints}/${talent.maxPoints}\nRequired: ${tierData.requiredPoints} points in ${specifyTree}`}
+                                            >
+                                                <div className="talent-icon">
+                                                    <img 
+                                                        src={`/icons/${talent.icon}`} 
+                                                        alt={talent.name}
+                                                        onError={(e) => {
+                                                            (e.target as HTMLImageElement).src = '/icons/default-talent.svg';
+                                                        }}
+                                                    />
+                                                    {talentState.currentPoints > 0 && (
+                                                        <div className="talent-rank">{talentState.currentPoints}</div>
+                                                    )}
+                                                </div>
+                                                <div className="talent-tooltip">
+                                                    <div className="tooltip-content">
+                                                        <div className="tooltip-title">{talent.name}</div>
+                                                        <div className="tooltip-points">{talentState.currentPoints}/{talent.maxPoints} points</div>
+                                                        <div className="tooltip-description">
+                                                            {'Description will be available soon'}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                    );
-                })}
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );

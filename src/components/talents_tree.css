@@ -70,6 +70,43 @@
     padding: 2px 0;
 }
 
+/* Grilla de talentos normalizada */
+.talent-grid-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    justify-items: center;
+    padding: 2px 0;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+/* Slot base (tanto para talentos como vacíos) */
+.talent-slot {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Slot vacío */
+.talent-empty {
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    visibility: hidden; /* Invisible pero mantiene espacio */
+}
+
+/* Debug mode - mostrar slots vacíos */
+.talent-tree:hover .talent-empty {
+    visibility: visible;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
 /* Cada talento individual - Estado base */
 .talent-item {
     display: flex;
