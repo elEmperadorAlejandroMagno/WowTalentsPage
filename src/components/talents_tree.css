@@ -93,18 +93,13 @@
     justify-content: center;
 }
 
-/* Slot vacío */
+/* Slot vacío - invisible pero mantiene espacio en grilla */
 .talent-empty {
-    background: rgba(0, 0, 0, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border: none;
+    opacity: 0;
+    pointer-events: none; /* No interactúa con mouse */
     visibility: hidden; /* Invisible pero mantiene espacio */
-}
-
-/* Debug mode - mostrar slots vacíos */
-.talent-tree:hover .talent-empty {
-    visibility: visible;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Cada talento individual - Estado base */
