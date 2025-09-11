@@ -31,10 +31,10 @@ interface TreeProps {
 
 function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
     const { dispatch, getTalentPoints, getSpecTotalPoints, canAssignPoint, processTalentDependencies } = useTalentContext();
-    
+   
+    const classTalents = talentsData[wowClass]; 
     // Obtener los talentos de la clase y especialización
     const talentsData = talents as Record<string, ClassWithGrid>;
-    const classTalents = talentsData[wowClass];
     
     if (!classTalents) {
         return (
