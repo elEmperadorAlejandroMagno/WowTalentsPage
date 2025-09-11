@@ -73,18 +73,18 @@
 /* Grilla de talentos normalizada */
 .talent-grid-row {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
     justify-items: center;
-    padding: 2px 0;
-    max-width: 380px;
+    min-width: 260px;
+    width: 100%;
     margin: 0 auto;
 }
 
 /* Slot base (tanto para talentos como vacíos) */
 .talent-slot {
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     border-radius: 6px;
     transition: all 0.3s ease;
     position: relative;
@@ -95,11 +95,28 @@
 
 /* Slot vacío - invisible pero mantiene espacio en grilla */
 .talent-empty {
+    /* Mantener exactamente las mismas dimensiones que talent-slot */
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    max-width: 58px;
+    min-height: 58px;
+    max-height: 58px;
+    border-radius: 6px;
+    
+    /* Invisible pero mantiene estructura */
     background: transparent;
     border: none;
     opacity: 0;
     pointer-events: none; /* No interactúa con mouse */
     visibility: hidden; /* Invisible pero mantiene espacio */
+    
+    /* Mismas propiedades de layout */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 /* Cada talento individual - Estado base */
@@ -111,10 +128,10 @@
     background: rgba(0, 0, 0, 0.3);
     border-radius: 6px;
     padding: 4px;
-    min-width: 60px;
-    max-width: 60px;
-    min-height: 60px;
-    max-height: 60px;
+    min-width: 58px;
+    max-width: 58px;
+    min-height: 58px;
+    max-height: 58px;
     border: 2px solid #666;
     transition: all 0.3s ease;
     cursor: pointer;

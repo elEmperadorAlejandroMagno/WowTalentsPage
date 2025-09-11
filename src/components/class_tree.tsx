@@ -1,7 +1,29 @@
 import talents from '../data/talents_with_grid.json';
-import type { Talent, SpecTalents } from '../types/types';
+import type { Talent } from '../types/types';
 import { useTalentContext } from '../context/TalentContext';
-import { normalizeSpecTalents, PositioningStrategy, type TalentGridSlot } from '../utils/talentGridNormalizer';
+
+// Interfaces para la estructura de datos con grilla
+interface GridSlot {
+  row: number;
+  col: number;
+  isEmpty: boolean;
+  talent: Talent | null;
+}
+
+interface TierWithGrid {
+  talents: Talent[];
+  requiredPoints: number;
+  grid: GridSlot[][];
+}
+
+interface SpecWithGrid {
+  [tier: string]: TierWithGrid;
+}
+
+interface ClassWithGrid {
+  [spec: string]: SpecWithGrid;
+}
+
 interface TreeProps {
     specifyTree: string;
     wowClass?: string;
@@ -10,8 +32,8 @@ interface TreeProps {
 function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
     const { dispatch, getTalentPoints, getSpecTotalPoints, canAssignPoint, processTalentDependencies } = useTalentContext();
     
-    // Obtener los talentos de la clase y especificación
-    const talentsData = talents as Record<string, Record<string, SpecTalents>>;
+    // Obtener los talentos de la clase y especialización
+    const talentsData = talents as Record<string, ClassWithGrid>;
     const classTalents = talentsData[wowClass];
     
     if (!classTalents) {
@@ -23,7 +45,7 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
         );
     }
     
-    const specTalents = classTalents[specifyTree] as SpecTalents | undefined;
+    const specTalents = classTalents[specifyTree] as SpecWithGrid | undefined;
     if (!specTalents) {
         return (
             <div className="talent-tree">
@@ -34,11 +56,18 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
     }
     const specTotalPoints = getSpecTotalPoints(specifyTree);
     
-    // Normalizar la especialización para usar grilla uniforme
-    const normalizedSpec = normalizeSpecTalents(specTalents, PositioningStrategy.CENTER_ALIGNED);
+    // Función para encontrar el índice original del talento en el array talents
+    const findTalentIndex = (tierKey: string, talentName: string): number => {
+        const tierData = specTalents[tierKey];
+        if (!tierData.talents) return -1;
+        return tierData.talents.findIndex(t => t.name === talentName);
+    };
 
     // Manejar clic izquierdo - agregar punto
-    const handleAddPoint = (tier: string, talentIndex: number, talent: Talent, requiredPoints: number) => {
+    const handleAddPoint = (tier: string, talent: Talent, requiredPoints: number) => {
+        const talentIndex = findTalentIndex(tier, talent.name);
+        if (talentIndex === -1) return; // Talento no encontrado
+        
         if (canAssignPoint(specifyTree, tier, talentIndex, talent.maxPoints, requiredPoints)) {
             dispatch({
                 type: 'ADD_POINT',
@@ -54,9 +83,12 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
     };
 
     // Manejar clic derecho - quitar punto
-    const handleRemovePoint = (e: React.MouseEvent, tier: string, talentIndex: number) => {
+    const handleRemovePoint = (e: React.MouseEvent, tier: string, talent: Talent) => {
         e.preventDefault(); // Prevenir menú contextual
         e.stopPropagation(); // Prevenir propagación del evento
+        const talentIndex = findTalentIndex(tier, talent.name);
+        if (talentIndex === -1) return; // Talento no encontrado
+        
         const currentPoints = getTalentPoints(specifyTree, tier, talentIndex);
         if (currentPoints > 0) {
             dispatch({
@@ -69,10 +101,21 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
     };
 
     // Determinar el estado visual de un talento
-    const getTalentState = (tier: string, talentIndex: number, requiredPoints: number, maxPoints: number) => {
+    const getTalentState = (tier: string, talent: Talent, requiredPoints: number) => {
+        const talentIndex = findTalentIndex(tier, talent.name);
+        if (talentIndex === -1) {
+            return {
+                currentPoints: 0,
+                canAssign: false,
+                isMaxed: false,
+                isAvailable: false,
+                isEmpty: true
+            };
+        }
+        
         const currentPoints = getTalentPoints(specifyTree, tier, talentIndex);
-        const canAssign = canAssignPoint(specifyTree, tier, talentIndex, maxPoints, requiredPoints);
-        const isMaxed = currentPoints >= maxPoints;
+        const canAssign = canAssignPoint(specifyTree, tier, talentIndex, talent.maxPoints, requiredPoints);
+        const isMaxed = currentPoints >= talent.maxPoints;
         const isAvailable = specTotalPoints >= requiredPoints;
         
         return {
@@ -91,40 +134,36 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
                 <span className="spec-points">{specTotalPoints} points spent</span>
             </div>
             <div className="talent-container" style={{ position: 'relative' }}>
-                {/* Renderizado de grilla normalizada */}
+                {/* Renderizado usando la grilla del JSON */}
                 <div className="talent-tiers">
-                    {Object.entries(normalizedSpec).map(([tierKey, tierData]) => {
+                    {Object.entries(specTalents).map(([tierKey, tierData]) => {
                         return (
                             <div key={tierKey} className="talent-tier">
                                 <h4>Tier {tierKey} (Required: {tierData.requiredPoints} points)</h4>
-                                <div className="talents-row talent-grid-row">
-                                    {tierData.slots.map((slot: TalentGridSlot, column: number) => {
+                                {/* Renderizado directo de la grilla - cada tier tiene solo una fila en el JSON */}
+                                <div className="talent-grid-row">
+                                    {tierData.grid[0]?.map((slot, colIndex) => {
                                         if (slot.isEmpty || !slot.talent) {
-                                            // Slot vacío
                                             return (
                                                 <div 
-                                                    key={`empty-${tierKey}-${column}`}
+                                                    key={`empty-${tierKey}-${colIndex}`}
                                                     className="talent-slot talent-empty"
                                                 />
                                             );
                                         }
-                                        
-                                        // Slot con talento
                                         const talent = slot.talent;
-                                        const originalIndex = slot.originalIndex!;
-                                        const talentState = getTalentState(tierKey, originalIndex, tierData.requiredPoints, talent.maxPoints);
-                                        
+                                        const talentState = getTalentState(tierKey, talent, tierData.requiredPoints);
                                         return (
                                             <div 
-                                                key={`${talent.name}-${tierKey}-${column}`}
+                                                key={`${talent.name}-${tierKey}-${colIndex}`}
                                                 className={`talent-slot talent-item ${
                                                     !talentState.isAvailable ? 'talent-unavailable' :
                                                     talentState.isMaxed ? 'talent-maxed' :
                                                     talentState.currentPoints > 0 ? 'talent-active' :
                                                     talentState.canAssign ? 'talent-available' : 'talent-disabled'
                                                 }`}
-                                                onClick={() => handleAddPoint(tierKey, originalIndex, talent, tierData.requiredPoints)}
-                                                onContextMenu={(e) => handleRemovePoint(e, tierKey, originalIndex)}
+                                                onClick={() => handleAddPoint(tierKey, talent, tierData.requiredPoints)}
+                                                onContextMenu={(e) => handleRemovePoint(e, tierKey, talent)}
                                                 title={`${talent.name}\nCurrent: ${talentState.currentPoints}/${talent.maxPoints}\nRequired: ${tierData.requiredPoints} points in ${specifyTree}`}
                                             >
                                                 <div className="talent-icon">

@@ -4,7 +4,7 @@ import type { Talent, TalentTier, SpecTalents } from '../types/types';
  * Configuración de la grilla normalizada
  */
 export const GRID_CONFIG = {
-  MAX_COLUMNS: 5,
+  MAX_COLUMNS: 4,
   EMPTY_TALENT_PLACEHOLDER: null as Talent | null
 };
 
