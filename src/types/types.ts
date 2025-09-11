@@ -16,6 +16,7 @@ export type Talent = {
     maxPoints: number;
     talentRequired?: TalentRequired;
     requires?: TalentDependency[];
+    enables?: string[]; // Lista de nombres de talentos que este talento habilita
 };
 
 export type TalentWithPoints = Talent & {

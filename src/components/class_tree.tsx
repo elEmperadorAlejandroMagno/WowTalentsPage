@@ -1,7 +1,6 @@
-import talents from '../data/talents_structured.json';
+import talents from '../data/talents_with_grid.json';
 import type { Talent, SpecTalents } from '../types/types';
 import { useTalentContext } from '../context/TalentContext';
-import GridTalentArrows from './GridTalentArrows';
 import { normalizeSpecTalents, PositioningStrategy, type TalentGridSlot } from '../utils/talentGridNormalizer';
 interface TreeProps {
     specifyTree: string;
@@ -9,16 +8,11 @@ interface TreeProps {
 }
 
 function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
-    const { dispatch, getTalentPoints, getSpecTotalPoints, canAssignPoint } = useTalentContext();
+    const { dispatch, getTalentPoints, getSpecTotalPoints, canAssignPoint, processTalentDependencies } = useTalentContext();
     
     // Obtener los talentos de la clase y especificación
     const talentsData = talents as Record<string, Record<string, SpecTalents>>;
     const classTalents = talentsData[wowClass];
-    
-    // Verificación de debugging
-    console.log('Class:', wowClass, 'Spec:', specifyTree);
-    console.log('Available classes:', Object.keys(talents));
-    console.log('Class talents:', classTalents);
     
     if (!classTalents) {
         return (
@@ -53,6 +47,9 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
                 talentIndex,
                 maxPoints: talent.maxPoints
             });
+            
+            // Procesar dependencias después de agregar el punto
+            processTalentDependencies(specifyTree, tier, talentIndex);
         }
     };
 
@@ -94,12 +91,6 @@ function Tree({ specifyTree, wowClass = 'Paladin' }: TreeProps) {
                 <span className="spec-points">{specTotalPoints} points spent</span>
             </div>
             <div className="talent-container" style={{ position: 'relative' }}>
-                {/* Componente de flechas usando grilla normalizada */}
-                <GridTalentArrows 
-                    specName={specifyTree} 
-                    normalizedSpec={normalizedSpec}
-                />
-                
                 {/* Renderizado de grilla normalizada */}
                 <div className="talent-tiers">
                     {Object.entries(normalizedSpec).map(([tierKey, tierData]) => {

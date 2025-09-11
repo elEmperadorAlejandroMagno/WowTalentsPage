@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, type ReactNode } from 'react';
 import type { SavedTalentSpec } from '../types/types';
-import talents from '../data/talents_structured.json';
+import talents from '../data/talents_with_grid.json';
 
 // Tipos para el contexto
 export interface TalentPoints {
@@ -24,7 +24,8 @@ export type TalentAction =
   | { type: 'REMOVE_POINT'; spec: string; tier: string; talentIndex: number }
   | { type: 'RESET_TALENTS' }
   | { type: 'SET_CLASS'; className: string }
-  | { type: 'LOAD_SPEC'; spec: SavedTalentSpec };
+  | { type: 'LOAD_SPEC'; spec: SavedTalentSpec }
+  | { type: 'ENABLE_TALENTS'; talentNames: string[] }; // Nueva acción para habilitar talentos
 
 // Estado inicial
 const initialState: TalentState = {
@@ -117,6 +118,8 @@ const TalentContext = createContext<{
   getTalentPoints: (spec: string, tier: string, talentIndex: number) => number;
   getSpecTotalPoints: (spec: string) => number;
   canAssignPoint: (spec: string, tier: string, talentIndex: number, maxPoints: number, requiredPoints: number) => boolean;
+  // Función para procesar dependencias
+  processTalentDependencies: (spec: string, tier: string, talentIndex: number) => void;
   // Funciones de guardado y carga
   saveSpec: (name: string) => boolean;
   loadSpec: (id: string) => boolean;
@@ -281,12 +284,38 @@ export function TalentProvider({ children }: TalentProviderProps) {
     }
   };
   
+  // Función para procesar dependencias de talentos
+  const processTalentDependencies = (spec: string, tier: string, talentIndex: number): void => {
+    try {
+      // Obtener el talento actual
+      const classTalents = JSON.parse(JSON.stringify(talents[state.currentClass as keyof typeof talents]));
+      if (!classTalents || !classTalents[spec] || !classTalents[spec][tier]) return;
+      
+      const talent = classTalents[spec][tier].talents[talentIndex];
+      if (!talent || !talent.enables || talent.enables.length === 0) return;
+      
+      // Log para debugging
+      console.log(`🔗 Talento '${talent.name}' habilita:`, talent.enables);
+      
+      // Por ahora, solo logueamos qué talentos se deberían habilitar
+      // En una implementación completa, aquí modificaríamos el estado 'available' 
+      // de los talentos correspondientes en el JSON o en un estado local
+      talent.enables.forEach((enabledTalentName: string) => {
+        console.log(`  - Habilitando talento: ${enabledTalentName}`);
+      });
+      
+    } catch (error) {
+      console.error('Error processing talent dependencies:', error);
+    }
+  };
+  
   const value = {
     state,
     dispatch,
     getTalentPoints,
     getSpecTotalPoints,
     canAssignPoint,
+    processTalentDependencies,
     saveSpec,
     loadSpec,
     getSavedSpecs,
