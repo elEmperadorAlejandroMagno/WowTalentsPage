@@ -1,7 +1,30 @@
+export type TalentRequired = {
+    tier: number;
+    index: number;
+    points: number;
+};
+
+export type TalentDependency = {
+    tier: string;
+    talentIndex: number;
+    minPoints: number;
+};
+
+
 export type Talent = {
     name: string;
     icon: string;
     maxPoints: number;
+    id?: string;
+    description?: string;
+    available?: boolean;
+    talentRequired?: TalentRequired;
+    requires?: string[]; // Array of talent names that are required (empty array if no requirements)
+    enables?: string[]; // Lista de nombres de talentos que este talento habilita
+};
+
+export type TalentWithPoints = Talent & {
+    currentPoints: number;
 };
 
 export type TalentTier = {
@@ -9,12 +32,25 @@ export type TalentTier = {
     requiredPoints: number;
 };
 
+export type TalentTierWithPoints = {
+    talents: TalentWithPoints[];
+    requiredPoints: number;
+};
+
 export type SpecTalents = {
     [tier: string]: TalentTier;
 };
 
+export type SpecTalentsWithPoints = {
+    [tier: string]: TalentTierWithPoints;
+};
+
 export type ClassTalents = {
     [spec: string]: SpecTalents;
+};
+
+export type ClassTalentsWithPoints = {
+    [spec: string]: SpecTalentsWithPoints;
 };
 
 export interface SavedTalentSpec {

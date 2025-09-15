@@ -1,5 +1,5 @@
 import Tree from './class_tree.tsx';
-import talents from '../data/talents_structured.json';
+import talents from '../data/talents_with_grid.json';
 import './talents_tree.css';
 
 function Talents({ wowClass }: { wowClass: string }) {
