@@ -179,6 +179,11 @@ export function TalentProvider({ children }: TalentProviderProps) {
       return false;
     }
     
+    // Verificar dependencias (requires)
+    if (!checkTalentDependencies(spec, tier, talentIndex)) {
+      return false;
+    }
+    
     return true;
   };
   
@@ -197,9 +202,13 @@ export function TalentProvider({ children }: TalentProviderProps) {
       const specTalents = classTalents[spec];
       const tierData = specTalents[tier];
       
-      if (!tierData || !tierData.talents || !tierData.talents[talentIndex]) return true;
+      // Check new grid structure
+      if (!tierData || !tierData.grid || !tierData.grid[talentIndex]) return true;
       
-      const talent = tierData.talents[talentIndex];
+      const talentSlot = tierData.grid[talentIndex];
+      if (!talentSlot || talentSlot.isEmpty || !talentSlot.talent) return true;
+      
+      const talent = talentSlot.talent;
       
       // Si no tiene talentRequired, está OK
       if (!talent.talentRequired) return true;
@@ -213,6 +222,74 @@ export function TalentProvider({ children }: TalentProviderProps) {
     } catch (error) {
       console.error('Error checking talentRequired:', error);
       return true; // En caso de error, permitir la asignación
+    }
+  };
+  
+  // Nueva función para verificar dependencias (requires)
+  const checkTalentDependencies = (
+    spec: string,
+    tier: string,
+    talentIndex: number
+  ): boolean => {
+    try {
+      const classTalents = JSON.parse(JSON.stringify(talents[state.currentClass as keyof typeof talents]));
+      
+      if (!classTalents || !classTalents[spec]) return true;
+      
+      const specTalents = classTalents[spec];
+      const tierData = specTalents[tier];
+      
+      // Check new grid structure
+      if (!tierData || !tierData.grid || !tierData.grid[talentIndex]) return true;
+      
+      const talentSlot = tierData.grid[talentIndex];
+      if (!talentSlot || talentSlot.isEmpty || !talentSlot.talent) return true;
+      
+      const talent = talentSlot.talent;
+      
+      // Si no hay talentos requeridos, está OK
+      if (!talent.requires || talent.requires.length === 0) return true;
+      
+      // Check all required talents (all must have at least 1 point)
+      return talent.requires.every((requiredTalentName: string) => {
+        return checkRequiredTalentByName(spec, requiredTalentName);
+      });
+      
+    } catch (error) {
+      console.error('Error checking talent dependencies:', error);
+      return true; // En caso de error, permitir la asignación
+    }
+  };
+  
+  // Función auxiliar para verificar dependencias por nombre de talento
+  const checkRequiredTalentByName = (spec: string, requiredTalentName: string): boolean => {
+    try {
+      const classTalents = JSON.parse(JSON.stringify(talents[state.currentClass as keyof typeof talents]));
+      
+      if (!classTalents || !classTalents[spec]) return false;
+      
+      const specTalents = classTalents[spec];
+      
+      // Buscar el talento requerido en todos los tiers
+      for (const [tierKey, tierData] of Object.entries(specTalents)) {
+        if (tierData && (tierData as any).grid) {
+          const grid = (tierData as any).grid;
+          for (let gridIndex = 0; gridIndex < grid.length; gridIndex++) {
+            const slot = grid[gridIndex];
+            if (!slot.isEmpty && slot.talent && slot.talent.name === requiredTalentName) {
+              // Encontramos el talento requerido, verificar que tiene al menos 1 punto
+              const currentPoints = getTalentPoints(spec, tierKey, gridIndex);
+              return currentPoints > 0;
+            }
+          }
+        }
+      }
+      
+      return false; // Talento requerido no encontrado
+      
+    } catch (error) {
+      console.error('Error checking required talent by name:', error);
+      return false;
     }
   };
   
@@ -291,7 +368,13 @@ export function TalentProvider({ children }: TalentProviderProps) {
       const classTalents = JSON.parse(JSON.stringify(talents[state.currentClass as keyof typeof talents]));
       if (!classTalents || !classTalents[spec] || !classTalents[spec][tier]) return;
       
-      const talent = classTalents[spec][tier].talents[talentIndex];
+      const tierData = classTalents[spec][tier];
+      if (!tierData || !tierData.grid || !tierData.grid[talentIndex]) return;
+      
+      const talentSlot = tierData.grid[talentIndex];
+      if (!talentSlot || talentSlot.isEmpty || !talentSlot.talent) return;
+      
+      const talent = talentSlot.talent;
       if (!talent || !talent.enables || talent.enables.length === 0) return;
       
       // Log para debugging

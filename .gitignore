@@ -29,3 +29,6 @@ dist-ssr
 # test
 test*
 debug*
+
+# temporal scripts
+scripts/* 

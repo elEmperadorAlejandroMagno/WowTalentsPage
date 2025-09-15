@@ -10,12 +10,16 @@ export type TalentDependency = {
     minPoints: number;
 };
 
+
 export type Talent = {
     name: string;
     icon: string;
     maxPoints: number;
+    id?: string;
+    description?: string;
+    available?: boolean;
     talentRequired?: TalentRequired;
-    requires?: TalentDependency[];
+    requires?: string[]; // Array of talent names that are required (empty array if no requirements)
     enables?: string[]; // Lista de nombres de talentos que este talento habilita
 };
 

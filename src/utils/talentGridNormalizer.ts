@@ -211,23 +211,11 @@ export function getGridDependencies(
       const talent = slot.talent;
       
       // Procesar dependencias 'requires'
-      if (talent.requires) {
-        talent.requires.forEach(dependency => {
-          const fromCoords = originalToGridCoordinates(
-            normalizedSpec,
-            parseInt(dependency.tier),
-            dependency.talentIndex
-          );
-          
-          if (fromCoords) {
-            dependencies.push({
-              from: fromCoords,
-              to: { tier: tierNum, column },
-              type: 'requires',
-              requiredPoints: dependency.minPoints
-            });
-          }
-        });
+      if (talent.requires && talent.requires.length > 0) {
+        // For simple string array dependencies, we skip adding these to grid dependencies
+        // as they need to be resolved by name lookup rather than coordinates
+        // They are handled in the TalentContext logic
+        // If we need coordinate-based dependencies in the future, we can extend this
       }
       
       // Procesar dependencia 'talentRequired'
